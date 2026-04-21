@@ -13,7 +13,7 @@ const appTypes = [
 const exampleIdeas = [
   "A task management app with team collaboration",
   "A 2D platformer game with pixel art style",
-  "A AI-powered writing assistant tool",
+  "An AI-powered writing assistant tool",
   "A social media analytics dashboard",
 ];
 
