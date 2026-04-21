@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nova-purple: #7C3AED;
+  --color-nova-blue: #2563EB;
+  --color-nova-cyan: #06B6D4;
+  --color-nova-dark: #050510;
+  --color-nova-navy: #0A0A2E;
+  --color-nova-card: rgba(255,255,255,0.04);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulseGlow 2s ease-in-out infinite;
+  --animate-gradient-shift: gradientShift 4s ease infinite;
+  --animate-spin-slow: spin 8s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(124,58,237,0.4); }
+    50% { box-shadow: 0 0 40px rgba(6,182,212,0.6), 0 0 80px rgba(124,58,237,0.3); }
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+:root {
+  --nova-purple: #7C3AED;
+  --nova-blue: #2563EB;
+  --nova-cyan: #06B6D4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050510;
+  color: white;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #7C3AED, #2563EB, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border-radius: 1rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(135deg, #7C3AED, #2563EB, #06B6D4);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Background gradient utilities */
+.bg-gradient-nova {
+  background: linear-gradient(135deg, #7C3AED, #2563EB, #06B6D4);
+}
+
+.bg-gradient-card {
+  background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.1));
+}
+
+/* Animation utilities */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  animation: gradientShift 4s ease infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050510;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#7C3AED, #06B6D4);
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(124,58,237,0.3);
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
